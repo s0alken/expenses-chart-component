@@ -74,7 +74,7 @@ body {
   flex-direction: column;
 }
 .card__header-balance-label {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
 }
 @media only screen and (max-width: 500px) {
   .card__header-balance-label {

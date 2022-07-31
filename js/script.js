@@ -13,9 +13,9 @@ const loadData = async () => {
     data.forEach(spent => {
 
         const column = document.createElement('div');
-        const value = document.createElement('div');
         const bar = document.createElement('div');
         const fill = document.createElement('div');
+        const value = document.createElement('div');
         const label = document.createElement('div');
         
         column.classList.add('card__graph-column');
@@ -29,10 +29,10 @@ const loadData = async () => {
 
         bar.style.height = `${proportion * spent.amount}rem`;
 
+        weekday === spent.day && fill.classList.add('highlight');
+
         bar.appendChild(fill);
         bar.appendChild(value);
-
-        weekday === spent.day && fill.classList.add('highlight');
 
         column.appendChild(bar);
         column.appendChild(label);

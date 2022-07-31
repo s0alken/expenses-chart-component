@@ -156,6 +156,7 @@ body {
   visibility: hidden;
   position: absolute;
   top: -4.7rem;
+  z-index: 10;
 }
 .card__graph-column-bar-fill {
   width: 100%;

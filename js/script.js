@@ -7,8 +7,9 @@ const loadData = async () => {
     const response = await fetch("../data.json");
     const data = await response.json();
 
-    const maxValue = Math.max(...data.map(value => value.amount));
-    const proportion = 15 / maxValue;
+    const maxAmount = Math.max(...data.map(value => value.amount));
+    const maxHeight = 15;
+    const proportion = maxHeight / maxAmount;
 
     data.forEach(spent => {
 

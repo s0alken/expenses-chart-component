@@ -1,19 +1,5 @@
-//Colors
-
-//Primary
-
-$soft-red: hsl(10, 79%, 65%);
-$cyan: hsl(186, 34%, 60%);
-
-//Neutral
-
-$dark-brown: hsl(25, 47%, 15%);
-$medium-brown: hsl(28, 10%, 53%);
-$cream: hsl(27, 66%, 92%);
-$very-pale-orange: hsl(33, 100%, 98%);
-
-//Font Family
-$font-primary: 'DM Sans', sans-serif;
+@import "variables";
+@import "animations";
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
@@ -32,10 +18,249 @@ html {
 
 body {
     font-family: $font-primary;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+
+    background-color: $cream;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     min-height: 100vh;
+
+    @media only screen and (max-width: $breakpoint) {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+}
+
+.card {
+    max-width: 54rem;
+    margin: 2.4rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &>* {
+        flex: 1 1 54rem;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $soft-red;
+
+        padding: 2.8rem 3.9rem 2.5rem 3.2rem;
+        border-radius: 2rem;
+        margin-bottom: 2.4rem;
+
+        color: $white;
+
+        @media only screen and (max-width: $breakpoint) {
+            padding: 2rem;
+            margin-bottom: 1.6rem;
+        }
+
+        &-balance {
+            display: flex;
+            flex-direction: column;
+
+            &-label {
+                margin-bottom: .7rem;
+
+                @media only screen and (max-width: $breakpoint) {
+                    margin-bottom: .4rem;
+                }
+            }
+
+            &-value {
+                font-weight: 700;
+                font-size: 3.2rem;
+                line-height: 4.2rem;
+
+                @media only screen and (max-width: $breakpoint) {
+                    font-size: 2.4rem;
+                    line-height: 3.1rem;
+                }
+
+            }
+
+        }
+    }
+
+    &__body {
+        background-color: $very-pale-orange;
+
+        padding: 4rem;
+        padding-top: 3.2rem;
+
+        border-radius: 2rem;
+
+        @media only screen and (max-width: $breakpoint) {
+            padding: 2.4rem 2rem;
+        }
+
+        &-heading {
+            font-weight: 700;
+            font-size: 3.2rem;
+            line-height: 4.2rem;
+
+            color: $dark-brown;
+            margin-bottom: 6.6rem;
+
+            @media only screen and (max-width: $breakpoint) {
+                font-size: 2.4rem;
+                line-height: 3.1rem;
+
+                margin-bottom: 5.2rem;
+            }
+
+        }
+    }
+
+    &__graph {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        column-gap: 1.791rem;
+
+        text-align: center;
+
+        @media only screen and (max-width: $breakpoint) {
+            column-gap: 1.2rem;
+        }
+
+        &-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            &-bar {  
+                margin-bottom: .8rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+
+                @media only screen and (max-width: $breakpoint) {
+                    margin-bottom: 1.1rem;
+                }
+
+                &-value {
+                    padding: .9rem;
+                    background-color: $dark-brown;
+    
+                    font-weight: 700;
+    
+                    color: $white;
+                    border-radius: .5rem;
+    
+                    visibility: hidden;
+    
+                    position: absolute;
+                    top: -4.7rem;
+                }
+
+                &-fill {
+                    width: 100%;
+                    height: 100%;
+                    background-color: $soft-red;
+                    border-radius: .5rem;
+
+                    transition: all .2s;
+
+                    //animation: fillBar .6s ease-in-out;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .5;
+                    }
+                }
+
+                &-fill.highlight {
+                    background-color: $cyan;
+                }
+
+                &-fill:hover+&-value {
+                    visibility: visible;
+                }
+                
+            }
+
+            &-label {
+                font-size: 1.5rem;
+                line-height: 2rem;
+
+                color: $medium-brown;
+
+                @media only screen and (max-width: $breakpoint) {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                }
+            }
+        }
+    }
+
+    &__hr {
+        height: .25rem;
+        background: $cream;
+        border: 0;
+
+        margin: 3.2rem 0;
+
+        @media only screen and (max-width: $breakpoint) {
+            margin: 2.4rem 0;
+        }
+    }
+
+    &__footer {
+
+        &-earnings {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &-label {
+                color: $medium-brown;
+            }
+
+            &-value {
+                font-weight: 700;
+                font-size: 4.8rem;
+                line-height: 6.2rem;
+
+                color: $dark-brown;
+
+                @media only screen and (max-width: $breakpoint) {
+                    font-size: 3rem;
+                    line-height: 3.9rem;
+                }
+            }
+
+            &-perc {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                &-value {
+                    font-weight: 700;
+
+                    color: $dark-brown;
+                }
+
+                &-label {
+                    color: $medium-brown;
+                }
+            }
+
+        }
+
+    }
+
 }

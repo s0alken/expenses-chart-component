@@ -163,6 +163,7 @@ body {
   background-color: hsl(10deg, 79%, 65%);
   border-radius: 0.5rem;
   transition: all 0.2s;
+  animation: fillBar 0.6s ease-in-out;
 }
 .card__graph-column-bar-fill:hover {
   cursor: pointer;

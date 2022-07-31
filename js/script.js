@@ -1,7 +1,6 @@
 
 const card_graph = document.querySelector('.card__graph');
-//const weekday = new Date().toLocaleString('en-US', {weekday: 'short'}).toLocaleLowerCase();
-const weekday = 'wed';
+const weekday = new Date().toLocaleString('en-US', {weekday: 'short'}).toLocaleLowerCase();
 
 const loadData = async () => {
 
